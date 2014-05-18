@@ -1,0 +1,44 @@
+{
+  "name": "parallel-coordinates-chart",
+  "version": "0.0.8",
+  "description": "Parallel coordinates chart for browsers using D3",
+  "main": [
+    "dist/parallel-coordinates-chart.css",
+    "dist/parallel-coordinates-chart.js"
+  ],
+  "keywords": [
+    "parallelcoordinates",
+    "visualization",
+    "d3",
+    "multivariate",
+    "dataviz"
+  ],
+  "homepage": "https://github.com/oztu/parallel-coordinates-chart",
+  "authors": [
+    "Ozan Turgut <ozanturgut@gmail.com>"
+  ],
+  "moduleType": [
+    "amd",
+    "node",
+    "globals"
+  ],
+  "license": "APACHE 2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "example",
+    "src",
+    "test",
+    "tests",
+    "Gruntfile.js",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:oztu/parallel-coordinates-chart.git"
+  },
+  "dependencies": {
+    "d3": "~3.4.6"
+  }
+}

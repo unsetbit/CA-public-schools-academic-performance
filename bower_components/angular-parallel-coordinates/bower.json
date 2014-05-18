@@ -1,0 +1,45 @@
+{
+  "name": "angular-parallel-coordinates",
+  "version": "0.0.4",
+  "description": "Angular directive for creating parallel coordinates charts using D3",
+  "keywords": [
+    "parallelcoordinates",
+    "visualization",
+    "d3",
+    "multivariate",
+    "dataviz"
+  ],
+  "main": [
+    "dist/angular-parallel-coordinates.css",
+    "dist/angular-parallel-coordinates.js"
+  ],
+  "homepage": "https://github.com/oztu/angular-parallel-coordinates",
+  "authors": [
+    "Ozan Turgut <ozanturgut@gmail.com>"
+  ],
+  "moduleType": [
+    "amd",
+    "node",
+    "globals"
+  ],
+  "license": "APACHE 2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "example",
+    "src",
+    "test",
+    "tests",
+    "Gruntfile.js",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:oztu/angular-parallel-coordinates.git"
+  },
+  "dependencies": {
+    "parallel-coordinates-chart": "~0.0.8",
+    "angular": "~1.2.16"
+  }
+}
