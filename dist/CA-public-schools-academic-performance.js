@@ -33169,7 +33169,10 @@ module.exports = function geoChart(config){
   
     tooltip = container.append("div")   
       .classed('tooltip', true)               
-      .style("opacity", 0);
+      .style({
+        opacity: 0,
+        position: "absolute"
+      });
 
     var districtsGroup = svg.append('g')
             .attr('class', 'districts')
@@ -33229,8 +33232,8 @@ module.exports = function geoChart(config){
         })
         .on("mousemove", function(d){
           tooltip
-            .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY -30) + "px");
+            .style("left", (d3.event.layerX) + "px")
+            .style("top", (d3.event.layerY -30) + "px");
         })
         .on("mouseover", function(d) {
           if(!d.properties.District) return;

@@ -45,11 +45,11 @@ module.exports = function(grunt){
 		watch: {
 			devJS: {
 				files: ['src/js/**'],
-				tasks: ['browserify:dev', 'copy', 'jshint:dev']
+				tasks: ['browserify:dev', 'jshint:dev']
 			},
 			devCSS: {
 				files: ['src/css/**'],
-				tasks: ['compass', 'concat', 'copy']
+				tasks: ['compass', 'concat']
 			}
 		},
 
@@ -100,14 +100,6 @@ module.exports = function(grunt){
 			}
 		},
 
-		copy: {
-			examples: {
-				files: [
-					{expand: true, src: ['dist/*'], dest: 'example/', filter: 'isFile'}
-				]
-			}
-		},
-
 		connect: {
 			server: {
 				options: { port: 8000, base: '.' }
@@ -122,7 +114,6 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-jasmine');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-browserify');
@@ -134,7 +125,6 @@ module.exports = function(grunt){
 		'compass',
 		'concat',
 		'jshint:dev',
-		'copy',
 		'connect',
 		'watch'
 	]);
