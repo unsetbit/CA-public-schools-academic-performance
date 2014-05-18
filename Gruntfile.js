@@ -13,13 +13,6 @@ module.exports = function(grunt){
 			dev: {
 				files: { 'dist/<%= pkg.name %>.js': ['src/js/module.js'] },
 				options: {	
-					alias: [
-						'bower_components/angular/angular.js:angular',
-						'bower_components/angular-parallel-coordinates/dist/angular-parallel-coordinates.js:angular-parallel-coordinates',
-						'bower_components/d3/d3.js:d3',
-						'bower_components/queue-async/queue.js:queue',
-						'bower_components/topojson/topojson.js:topojson',
-					],
 					bundleOptions: { 
 						//debug: true,
 						standalone: '<%= pkg.name %>'
@@ -27,13 +20,6 @@ module.exports = function(grunt){
 				}
 			},
 			options: {
-				alias: [
-					'bower_components/angular/angular.js:angular',
-					'bower_components/angular-parallel-coordinates/dist/angular-parallel-coordinates.js:angular-parallel-coordinates',
-					'bower_components/d3/d3.js:d3',
-					'bower_components/queue-async/queue.js:queue',
-					'bower_components/topojson/topojson.js:topojson',
-				],
 				bundleOptions: { standalone: '<%= pkg.name %>' }
 			}
 		},

@@ -56,18 +56,38 @@ body, html {
 }
 
 /* line 1, ../src/css/CA-public-schools-academic-performance.scss */
+body {
+  font-family: 'Lora', serif;
+}
+
+/* line 5, ../src/css/CA-public-schools-academic-performance.scss */
+.changeable {
+  border-bottom: 1px dashed #ccc;
+  cursor: pointer;
+}
+/* line 9, ../src/css/CA-public-schools-academic-performance.scss */
+.changeable:hover {
+  border-bottom: 1px dashed steelblue;
+}
+
+/* line 14, ../src/css/CA-public-schools-academic-performance.scss */
+svg {
+  border: 1px solid #eee;
+}
+
+/* line 18, ../src/css/CA-public-schools-academic-performance.scss */
 .districts path {
   fill: #eee;
   stroke: white;
   stroke-width: .25px;
 }
 
-/* line 7, ../src/css/CA-public-schools-academic-performance.scss */
+/* line 24, ../src/css/CA-public-schools-academic-performance.scss */
 .districts path:hover {
   stroke-width: 2px;
 }
 
-/* line 11, ../src/css/CA-public-schools-academic-performance.scss */
+/* line 28, ../src/css/CA-public-schools-academic-performance.scss */
 div.tooltip {
   position: absolute;
   text-align: center;
@@ -79,7 +99,7 @@ div.tooltip {
   pointer-events: none;
 }
 
-/* line 23, ../src/css/CA-public-schools-academic-performance.scss */
+/* line 40, ../src/css/CA-public-schools-academic-performance.scss */
 .legend {
   font-size: 12px;
 }

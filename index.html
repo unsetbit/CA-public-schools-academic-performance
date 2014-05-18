@@ -6,17 +6,18 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link type="text/css" rel="stylesheet" href="dist/CA-public-schools-academic-performance.css" />
+  
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/d3/d3.js"></script>
+  <script src="bower_components/topojson/topojson.js"></script>
+  <script src="bower_components/angular-parallel-coordinates/dist/angular-parallel-coordinates.js"></script>
+
   <script src="dist/CA-public-schools-academic-performance.js"></script>
+  
   <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <style>
-  body{
-    font-family: 'Lora', serif;
-  }
 
-  svg{
-    border: 1px solid #eee;
-  }
   </style>
 </head>
 <body ng-app="app" ng-controller="root">
@@ -36,6 +37,18 @@
 
 
     <div class="row">
+      <div class="col-md-4">
+          This map shows {{getFilterText()}}, colored according to
+          <span class="btn-group">
+            <span ng-click="changeHighlight=!changeHighlight" class="dropdown-toggle changeable" data-toggle="dropdown">
+              {{pcChart.highlight}}
+            </span>
+            <ul ng-click="changeHighlight=false" style="{{changeHighlight && 'display:inline-block'}}" class="dropdown-menu" role="menu">
+              <li ng-repeat="item in pcChart.select"><a href="#" ng-click="pcChart.highlight=item">{{item}}</a></li>
+            </ul>
+          </span>.
+      </div>
+
       <div class="col-md-8">
         <geo-chart 
           topo="topo" 
@@ -46,9 +59,10 @@
           style="display:inline-block;"
         ></geo-chart>
       </div>
-      <div class="col-md-4">
-      
-      </div>
+    </div>
+
+
+    <div class="row">
       <div class="col-md-12">
         <parallel-coordinates-chart
           style="display:inline-block"
@@ -89,9 +103,7 @@
           topo="topo" 
           width="750"
           height="300"
-          filter="geoFilter"
-          property="{{pcChart.highlight || 'API'}}"
-          style="display:inline-block;"
+          property="Academic Performance"
         ></geo-chart>
       </div>
     </div>
@@ -121,11 +133,11 @@
           style="display:inline-block"
           width="750"
           height="500"
-          highlight="pcChart.highlight"
-          select="pcChart.select"
-          filters="pcChart.filters"
+          highlight="sampleChart.highlight"
+          select="sampleChart.select"
+          filters="sampleChart.filters"
           values="pcChart.data" 
-          config="pcChart.config"
+          config="sampleChart.config"
         ></parallel-coordinates-chart>
       </div>
     </div>

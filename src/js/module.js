@@ -1,7 +1,3 @@
-require('angular');
-window.d3 = require('d3');
-require('angular-parallel-coordinates');
-
 var dimensions = [
   'API',
   'AA_API',

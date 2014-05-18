@@ -1,3 +1,20 @@
+body{
+  font-family: 'Lora', serif;
+}
+
+.changeable{
+  border-bottom: 1px dashed #ccc;
+  cursor: pointer;
+
+  &:hover{
+    border-bottom: 1px dashed steelblue;  
+  }
+}
+
+svg{
+  border: 1px solid #eee;
+}
+
 .districts path{
   fill:#eee;
   stroke: white;
@@ -23,3 +40,4 @@ div.tooltip {
 .legend {
   font-size: 12px;
 }
+

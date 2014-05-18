@@ -1,4 +1,3 @@
-var topojson = require('topojson');
 var colorbrewer = require('./colorbrewer');
 
 module.exports = function geoChart(config){
@@ -109,9 +108,12 @@ module.exports = function geoChart(config){
       else if(value > max) max = value;
     });
 
-    if(~property.indexOf('_API')){
+    if(~property.indexOf('Performance')){
       min = 200;
       max = 1000; 
+    } else if(~property.indexOf('%')) {
+      min = 0;
+      max = 100;
     } else {
       switch(property){
         case 'ACS_46':
@@ -119,14 +121,6 @@ module.exports = function geoChart(config){
           min = 100;
           max = 0;
           break;
-        case 'HSG':
-        case 'SOME_COL':
-        case 'COL_GRAD':
-        case 'GRAD_SCH':
-          min = 0;
-          max = 100;
-          break;
-
       }
     }
 
@@ -144,9 +138,12 @@ module.exports = function geoChart(config){
       else if(value > max) max = value;
     });
 
-    if(~property.indexOf('API')){
+    if(~property.indexOf('Performance')){
       min = 200;
       max = 1000; 
+    } else if(~property.indexOf('%')){
+      min = 0;
+      max = 100;
     } else {
       switch(property){
         case 'ACS_46':
