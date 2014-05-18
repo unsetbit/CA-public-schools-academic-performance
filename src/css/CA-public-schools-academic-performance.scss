@@ -1,0 +1,25 @@
+.districts path{
+  fill:#eee;
+  stroke: white;
+  stroke-width:.25px;
+}
+
+.districts path:hover{
+  stroke-width: 2px;
+}
+
+div.tooltip {   
+  position: absolute;           
+  text-align: center;           
+  padding: 5px 15px;             
+  font-size: 10px;     
+  background: white;
+  border: 1px solid #ccc;      
+  border-radius: 1px;  
+
+  pointer-events: none;         
+}    
+
+.legend {
+  font-size: 12px;
+}

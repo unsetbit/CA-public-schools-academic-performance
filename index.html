@@ -1,0 +1,28 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>California Education Data Explorer</title>
+  <link type="text/css" rel="stylesheet" href="dist/CA-public-schools-academic-performance.css" />
+  <script src="dist/CA-public-schools-academic-performance.js"></script>
+</head>
+<body ng-app="app" ng-controller="root">
+  <geo-chart 
+    topo="topo" 
+    width="500"
+    height="600"
+    filter="geoFilter"
+    property="{{pcChart.highlight || 'API'}}"
+    style="display:inline-block;"
+  ></geo-chart>
+
+  <parallel-coordinates-chart
+    style="display:inline-block"
+    width="600"
+    height="600"
+    highlight="pcChart.highlight"
+    select="pcChart.select"
+    filters="pcChart.filters"
+    values="pcChart.data" 
+    config="pcChart.config"
+  ></parallel-coordinates-chart>
+</body>

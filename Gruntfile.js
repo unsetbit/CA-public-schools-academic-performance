@@ -13,13 +13,27 @@ module.exports = function(grunt){
 			dev: {
 				files: { 'dist/<%= pkg.name %>.js': ['src/js/module.js'] },
 				options: {	
+					alias: [
+						'bower_components/angular/angular.js:angular',
+						'bower_components/angular-parallel-coordinates/dist/angular-parallel-coordinates.js:angular-parallel-coordinates',
+						'bower_components/d3/d3.js:d3',
+						'bower_components/queue-async/queue.js:queue',
+						'bower_components/topojson/topojson.js:topojson',
+					],
 					bundleOptions: { 
-						debug: true,
+						//debug: true,
 						standalone: '<%= pkg.name %>'
 					} 
 				}
 			},
 			options: {
+				alias: [
+					'bower_components/angular/angular.js:angular',
+					'bower_components/angular-parallel-coordinates/dist/angular-parallel-coordinates.js:angular-parallel-coordinates',
+					'bower_components/d3/d3.js:d3',
+					'bower_components/queue-async/queue.js:queue',
+					'bower_components/topojson/topojson.js:topojson',
+				],
 				bundleOptions: { standalone: '<%= pkg.name %>' }
 			}
 		},
@@ -35,13 +49,23 @@ module.exports = function(grunt){
 			},
 			devCSS: {
 				files: ['src/css/**'],
-				tasks: ['compass:dist', 'copy']
+				tasks: ['compass', 'concat', 'copy']
 			}
 		},
 
 		compass: {
 			dist: {
 				options: { sassDir: 'src/css', cssDir: 'dist' }
+			}
+		},
+
+		concat: {
+			dist: {
+				src: [
+					'bower_components/angular-parallel-coordinates/dist/angular-parallel-coordinates.css',
+					'dist/<%= pkg.name %>.css'
+				],
+				dest: 'dist/<%= pkg.name %>.css'
 			}
 		},
 
@@ -86,7 +110,7 @@ module.exports = function(grunt){
 
 		connect: {
 			server: {
-				options: { port: 8000, base: 'example' }
+				options: { port: 8000, base: '.' }
 			}
 		}
 	});
@@ -99,6 +123,7 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-browserify');
 	
@@ -107,6 +132,7 @@ module.exports = function(grunt){
 		'jasmine',
 		'browserify:dev',
 		'compass',
+		'concat',
 		'jshint:dev',
 		'copy',
 		'connect',
@@ -120,6 +146,7 @@ module.exports = function(grunt){
 		'uglify',
 		'jasmine',
 		'compass',
+		'concat',
 		'cssmin'
 	]);
 
