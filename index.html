@@ -19,106 +19,124 @@
   }
   </style>
 </head>
-<body ng-app="app" ng-controller="root" class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Academic Performance in California <small>in 2012</small></h1>
-      <p class="lead">
-        Two years ago, Barack was re-elected, Vladamir became president of Russia, Facebook went public, Curiosity landed on Mars, and millions of students in California took standardized tests so that you could explore this dataset.
-      </p>
+<body ng-app="app" ng-controller="root">
+  <div class="container">
+    <a href="https://github.com/oztu/CA-public-schools-academic-performance"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Academic Performance in California <small>in 2012</small></h1>
+        <p class="lead">
+          Two years ago, Barack was re-elected, Vladamir became president of Russia, Facebook went public, Curiosity landed on Mars, and millions of students in California took standardized tests so that you could explore this dataset.
+        </p>
+      </div>
     </div>
-  </div>
 
 
-  <div class="row">
-    <div class="col-md-12">
-      <geo-chart 
-        topo="topo" 
-        width="500"
-        height="600"
-        filter="geoFilter"
-        property="{{pcChart.highlight || 'API'}}"
-        style="display:inline-block;"
-      ></geo-chart>
-
-      <parallel-coordinates-chart
-        style="display:inline-block"
-        width="630"
-        height="600"
-        highlight="pcChart.highlight"
-        select="pcChart.select"
-        filters="pcChart.filters"
-        values="pcChart.data" 
-        config="pcChart.config"
-      ></parallel-coordinates-chart>
-    </div>
-  </div>
-
-  <div class="row" style="margin-top:30px;">
-    <div class="col-md-12">
-      <h2>Good explorers know their tools well</h2>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-4">
-      <p>
-        Let's learn how to use our exploration tools to become effective data adventurers. The first tool should be familiar: it's a map.
-      </p>
-
-      <p>
-        Drag to pan it, or scroll to zoom in and out.
-      </p>
-      <p>
-        The map is broken up by school districts, as you hover over them, you'll see a little tooltip to give you more information. The coloring-coding is described
-        by the legened at the bottom left of the map.
-      </p>
-      </p>
-    </div>
-    <div class="col-md-8" style="text-align:center;">
-      <geo-chart 
-        topo="topo" 
-        width="750"
-        height="300"
-        filter="geoFilter"
-        property="{{pcChart.highlight || 'API'}}"
-        style="display:inline-block;"
-      ></geo-chart>
-    </div>
-  </div>
-
-
-  <div class="row" style="margin-top:30px;">
-    <div class="col-md-4">  
-      <p style="margin-top:10px">
-        This plot is more difficult to understand, but it's very powerful. This is called a parallel coordinates plot. Unlike many line charts, these lines aren't progressing through time but rather through the dimensions of the data. The primary benefit of this plot is to explore how one dimension relates to another when there are many dimensions to consider. 
-      </p>
+    <div class="row">
+      <div class="col-md-8">
+        <geo-chart 
+          topo="topo" 
+          width="740"
+          height="600"
+          filter="geoFilter"
+          property="{{pcChart.highlight || 'API'}}"
+          style="display:inline-block;"
+        ></geo-chart>
+      </div>
+      <div class="col-md-4">
       
-      <p>
-        Drag and drop the axis to reorder and compare them against neighbors. Note that there is no "correct" order of these axis &ndash; some arrangements will yield straight lines between two axis (meaning high correlation) while others will randomly connect.
-      </p>
-
-      <p>
-        Highlight an axis by clicking on the header. This will color the lines according to the values on the highlighted axis and allow you to see how the data is distributed across the dimensions when ordered by the highlighted dimension.
-      </p>
-
-      <p>
-        Filters lines by dragging along the axis you want to filter on. This allows you to see how the data flows given a restriction on a dimension. You can also filter multiple columns. Clicking on the axis will turn off the filter.
-      </p>
+      </div>
+      <div class="col-md-12">
+        <parallel-coordinates-chart
+          style="display:inline-block"
+          width="1140"
+          height="350"
+          highlight="pcChart.highlight"
+          select="pcChart.select"
+          filters="pcChart.filters"
+          values="pcChart.data" 
+          config="pcChart.config"
+        ></parallel-coordinates-chart>
+      </div>
     </div>
 
-    <div class="col-md-8">
-      <parallel-coordinates-chart
-        style="display:inline-block"
-        width="750"
-        height="500"
-        highlight="pcChart.highlight"
-        select="pcChart.select"
-        filters="pcChart.filters"
-        values="pcChart.data" 
-        config="pcChart.config"
-      ></parallel-coordinates-chart>
+    <div class="row" style="margin-top:30px;">
+      <div class="col-md-12">
+        <h2>Good explorers know their tools well</h2>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <p>
+          Let's learn how to use our exploration tools to become effective data adventurers. The first tool should be familiar: it's a map.
+        </p>
+
+        <p>
+          Drag to pan it, or scroll to zoom in and out.
+        </p>
+        <p>
+          The map is broken up by school districts, as you hover over them, you'll see a little tooltip to give you more information. The coloring-coding is described
+          by the legened at the bottom left of the map.
+        </p>
+        </p>
+      </div>
+      <div class="col-md-8" style="text-align:center;">
+        <geo-chart 
+          topo="topo" 
+          width="750"
+          height="300"
+          filter="geoFilter"
+          property="{{pcChart.highlight || 'API'}}"
+          style="display:inline-block;"
+        ></geo-chart>
+      </div>
+    </div>
+
+
+    <div class="row" style="margin-top:30px;">
+      <div class="col-md-4">  
+        <p style="margin-top:10px">
+          This plot is more difficult to understand, but it's very powerful. This is called a parallel coordinates plot. Unlike many line charts, these lines aren't progressing through time but rather through the dimensions of the data. The primary benefit of this plot is to explore how one dimension relates to another when there are many dimensions to consider. 
+        </p>
+        
+        <p>
+          Drag and drop the axis to reorder and compare them against neighbors. Note that there is no "correct" order of these axis &ndash; some arrangements will yield straight lines between two axis (meaning high correlation) while others will randomly connect.
+        </p>
+
+        <p>
+          Highlight an axis by clicking on the header. This will color the lines according to the values on the highlighted axis and allow you to see how the data is distributed across the dimensions when ordered by the highlighted dimension.
+        </p>
+
+        <p>
+          Filters lines by dragging along the axis you want to filter on. This allows you to see how the data flows given a restriction on a dimension. You can also filter multiple columns. Clicking on the axis will turn off the filter.
+        </p>
+      </div>
+
+      <div class="col-md-8">
+        <parallel-coordinates-chart
+          style="display:inline-block"
+          width="750"
+          height="500"
+          highlight="pcChart.highlight"
+          select="pcChart.select"
+          filters="pcChart.filters"
+          values="pcChart.data" 
+          config="pcChart.config"
+        ></parallel-coordinates-chart>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:30px; margin-bottom:30px;">
+      <div class="col-md-12">
+        <p>
+          Made by <a href="http://ozan.io">Ozan</a> using <a href="http://www.cde.ca.gov/ta/ac/ap/apidatafiles.asp">2012 Base API data</a>.
+        </p>
+      </div>
+    </div>  
   </div>
 </body>
 </html>
