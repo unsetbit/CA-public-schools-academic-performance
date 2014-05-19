@@ -172,7 +172,6 @@ module.exports = function geoChart(config){
     var element = container.node();
     var data = container.datum();
     var districts = topojson.feature(data, data.objects.districts).features;
-    districts = districts.filter(filter);
     
     svg = container
       .selectAll('svg')
@@ -244,8 +243,8 @@ module.exports = function geoChart(config){
     var color = getColorer(districts, property);
     paths.enter().append('path')
         .style('fill', function(d){ 
-          if(!d.properties[property]) return '';
-          return color(d.properties[property]);   
+          if(!d.properties[property] || !filter(d)) return '';
+          return color(d.properties[property]);
         })
         .on("mousemove", function(d){
           tooltip
